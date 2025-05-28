@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@layer theme, base, components, utilities;
+
+@import "./theme.css" layer(theme);
+@import "./components.css" layer(components);
+@import "./utilities.css" layer(utilities);
+
+@layer base {
+  :root {
+    @apply bg-neutral-100;
+  }
+
+  body {
+    @apply text-neutral-800;
+  }
+}

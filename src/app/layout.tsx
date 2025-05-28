@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { NotoSerifTC } from "@/helpers/fontHelper";
-import "../styles/globals.scss";
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +13,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={NotoSerifTC.className}>
       <body>
-        <header className="h-[48px]"></header>
+        <header className="h-[48px] fixed top-0 left-0 right-0">
+          <nav className="container h-full mx-auto"></nav>
+        </header>
         <main>{children}</main>
       </body>
     </html>
