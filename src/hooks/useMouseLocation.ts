@@ -1,36 +1,29 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { clamp, normalize } from "@/helpers/math";
 
 // 需要做节流，参数为节流参数
 export default function useMouseLocation() {
-  //   const mouseXY = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const [mouseXY, setMouseXY] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
+    const handleMouseMove = (event: MouseEvent) => {
+      const clampedX = normalize(event.clientX / window.innerWidth, { decimal: 1 });
+      const clampedY = normalize(event.clientY / window.innerHeight, { decimal: 1 });
 
+      // 节流机制，只有在计算值有变动的情况下才会触发更新渲染。
+      setMouseXY((prev) => {
+        if (prev.x === clampedX && prev.y === clampedY) {
+          return prev;
+        }
+        return { x: clampedX, y: clampedY };
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      window.removeEventListener("mousedown", handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
-  const handleMouseMove = (event: MouseEvent) => {
-    // 钳制这一块，可以封装工具类
-    const clampedX = -1 + (event.clientX / window.innerWidth) * 2;
-    const clampedY = -1 + (event.clientY / window.innerHeight) * 2;
-
-    // 这里也可以用乘法+四色五入+触发保留小数
-    const roundX = Number(clampedX.toFixed(2));
-    const roundY = Number(clampedY.toFixed(2));
-
-    setMouseXY({
-      x: roundX,
-      y: roundY,
-    });
-    // mouseXY.current = {
-    //   x: roundX,
-    //   y: roundY,
-    // };
-  };
 
   return mouseXY;
 }

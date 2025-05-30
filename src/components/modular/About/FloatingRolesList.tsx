@@ -3,15 +3,8 @@ import Image from "next/image";
 import { Variants } from "motion/react";
 import * as motion from "motion/react-client";
 import { ROLE_IMAGES } from "@/constants/resources";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMouseLocation from "@/hooks/useMouseLocation";
-
-const containerVariants: Variants = {
-  initial: {},
-  animate: {
-    transition: { staggerChildren: 0.2 },
-  },
-};
 
 const itemVariants = (index: number): Variants => ({
   initial: { y: 0, opacity: 0 },
@@ -49,11 +42,17 @@ export default function FloatingRolesList() {
     });
   };
 
-  // 可以通过钳制数据，计算偏移，然后付给容器
-  console.log(mouseXY)
-
   return (
-    <motion.ul variants={containerVariants} className="flex flex-row space-x-6 py-[60px]">
+    <motion.ul
+      transition={{
+        staggerChildren: 0.2,
+      }}
+      className="flex flex-row space-x-6 py-[60px]"
+      style={{
+        x: -(mouseXY.x * 15),
+        y: -(mouseXY.y * 15),
+      }}
+    >
       {ROLE_IMAGES.map((item, index) => {
         return (
           <motion.li
@@ -62,7 +61,7 @@ export default function FloatingRolesList() {
             initial="initial"
             animate={animationsCompleted[index] ? "float" : "animate"}
             onAnimationComplete={() => handleAnimationComplete(index)}
-            className={`w-[80px] aspect-[1/6] overflow-hidden rounded-4xl relative`}
+            className={`w-[100px] aspect-[1/5] overflow-hidden rounded-4xl relative`}
           >
             <Image src={item} alt="read role" objectFit="cover" fill priority></Image>
           </motion.li>
