@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import { motion, useSpring } from "motion/react";
 
 import { ROLE_IMAGES } from "@/constants/resources";
 import useMouseLocation from "@/hooks/useMouseLocation";

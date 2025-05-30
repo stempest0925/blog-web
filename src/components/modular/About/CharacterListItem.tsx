@@ -20,6 +20,9 @@ const variants = (index: number): Variants => ({
       repeatType: "reverse",
     },
   },
+  hover: {
+    scale: 1.15,
+  },
 });
 
 // ListItem Props
@@ -28,6 +31,7 @@ type CharacterListItemProps = { resource: string; index: number };
 // 需要增加悬停暂停子项动画功能
 export default function CharacterListItem({ resource, index }: CharacterListItemProps) {
   const [animationCompleted, setAnimationCompleted] = useState<boolean>(false);
+  // const [isPaused, setIsPaused] = useState<boolean>(false);
 
   const handleAnimationComplete = () => {
     setAnimationCompleted(true);
@@ -38,8 +42,11 @@ export default function CharacterListItem({ resource, index }: CharacterListItem
       variants={variants(index)}
       initial="initial"
       animate={animationCompleted ? "float" : "animate"}
+      whileHover="hover"
       onAnimationComplete={handleAnimationComplete}
-      className={`w-[100px] aspect-[1/5] overflow-hidden rounded-4xl relative`}
+      // onHoverStart={() => setIsPaused(true)}
+      // onHoverEnd={() => setIsPaused(false)}
+      className={`w-[100px] aspect-[1/5] overflow-hidden rounded-full relative shadow-md`}
     >
       <Image src={resource} alt="roles" objectFit="cover" fill priority></Image>
     </motion.li>
