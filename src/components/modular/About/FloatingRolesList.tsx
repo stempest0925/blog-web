@@ -44,13 +44,13 @@ export default function FloatingRolesList() {
 
   return (
     <motion.ul
-      transition={{
-        staggerChildren: 0.2,
-      }}
+      transition={{ staggerChildren: 0.2 }}
       className="flex flex-row space-x-6 py-[60px]"
       style={{
         x: -(mouseXY.x * 15),
         y: -(mouseXY.y * 15),
+        transitionDuration: "300ms",
+        transitionTimingFunction: "linear",
       }}
     >
       {ROLE_IMAGES.map((item, index) => {

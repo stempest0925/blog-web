@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { clamp, normalize } from "@/helpers/math";
+import { throttle } from "@/helpers/optimize";
 
 // 需要做节流，参数为节流参数
 export default function useMouseLocation() {
   const [mouseXY, setMouseXY] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
+    const handleMouseMove = throttle((event: MouseEvent) => {
       const clampedX = normalize(event.clientX / window.innerWidth, { decimal: 1 });
       const clampedY = normalize(event.clientY / window.innerHeight, { decimal: 1 });
 
@@ -17,7 +18,7 @@ export default function useMouseLocation() {
         }
         return { x: clampedX, y: clampedY };
       });
-    };
+    }, 300);
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
