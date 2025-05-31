@@ -1,17 +1,24 @@
-@import "tailwindcss";
+@import "tailwindcss"; /* tailwind 核心 */
 
-@layer theme, base, components, utilities;
+@layer theme, base, components, utilities; /* 层顺序 */
 
 @import "./theme.css" layer(theme);
 @import "./components.css" layer(components);
 @import "./utilities.css" layer(utilities);
 
 @layer base {
+  /* root/html */
   :root {
-    @apply bg-neutral-100;
+    @apply bg-background size-full;
   }
 
+  /* body */
   body {
-    @apply text-neutral-800;
+    @apply text-text relative size-full;
+  }
+
+  /* 默认滚动条样式 */
+  ::-webkit-scrollbar {
+    display: none;
   }
 }

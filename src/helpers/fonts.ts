@@ -1,5 +1,5 @@
-import { Noto_Serif_TC } from "next/font/google";
+import { Noto_Serif_SC } from "next/font/google";
 
-export const NotoSerifTC = Noto_Serif_TC({
+export const NotoSerifSC = Noto_Serif_SC({
   subsets: ["latin"],
 });

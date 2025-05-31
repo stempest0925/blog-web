@@ -1,17 +1,23 @@
 @theme {
-  --color-primary: #10b981;
+  /* 主题色、主题色文本 */
+  --color-primary: #3dd598;
   --color-primary-content: #ffffff;
 
-  --color-secondary: #bbf7d0;
-  --color-secondary-content: #14532d;
+  /* 次主题色、次主题色文本 */
+  --color-secondary: #ff565e;
+  --color-secondary-content: #ffffff;
 
-  --color-neutral-800: #1e293b;
-  --color-neutral-100: #f1f5f9;
+  /* 文本色 */
+  --color-text: #2e3a59;
+  /* 文本辅助色 */
+  --color-text-secondary: #606b88;
 
-  --color-info: #1681fc;
-  --color-success: #40d18d;
-  --color-warning: #ffdf14;
-  --color-danger: #ff6a44;
+  /* 背景色 */
+  --color-background: #edf1fa;
+  /* 表色 */
+  --color-surface: #ffffff;
 
-  --color-surface: #edf1fa;
+  /* 阴影色 */
+
+  /* 边框色 */
 }
