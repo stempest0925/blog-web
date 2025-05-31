@@ -1,0 +1,17 @@
+@layer components {
+  .title-sign {
+    position: relative;
+    text-indent: calc(var(--spacing) * 4);
+  }
+  .title-sign::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: calc(var(--spacing) * 2);
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-sm);
+  }
+}

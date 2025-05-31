@@ -1,8 +1,10 @@
+import Title from "@/components/atomic/Title";
 import PostCard from "@/components/modular/Cards/PostCard";
 
 export default function HomePage() {
   return (
     <div className="px-2 md:px-4 2xl:px-8">
+      <Title text="发现更多" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
           <PostCard

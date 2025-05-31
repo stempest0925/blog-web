@@ -14,7 +14,7 @@ type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={NotoSerifSC.className}>
+    <html lang="en">
       {injectScanner()}
       <body>
         <div className="flex size-full flex-row">

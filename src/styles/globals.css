@@ -9,16 +9,40 @@
 @layer base {
   /* root/html */
   :root {
-    @apply bg-background size-full;
+    min-width: 320px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background);
   }
 
   /* body */
   body {
-    @apply text-text relative size-full;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: var(--color-text);
+    font-family:
+      Poppins,
+      -apple-system,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      Fira Sans,
+      Droid Sans,
+      Helvetica Neue,
+      sans-serif;
   }
 
   /* 默认滚动条样式 */
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  img {
+    user-select: none;
+    pointer-events: none;
   }
 }
