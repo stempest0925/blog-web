@@ -1,20 +1,6 @@
 "use client";
-
 import Image from "next/image";
-import { motion, Variants } from "motion/react";
 import { formatMonth, formatDay } from "@/helpers/date";
-
-const variants: Variants = {
-  initial: { opacity: 0, y: 50 },
-  inView: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 3,
-      type: "spring",
-    },
-  },
-};
 
 type IProps = {
   title: string;
@@ -29,7 +15,7 @@ export default function PostCard({ title, text, datetime }: IProps) {
   const day = formatDay(date.getDate());
 
   return (
-    <motion.div variants={variants} className="bg-surface rounded-lg p-2 shadow-xs">
+    <div className="bg-surface rounded-lg p-2 shadow-xs">
       <div className="relative aspect-[5/3] w-full overflow-hidden rounded-lg bg-gray-300">
         <Image src="/post-cover.jpg" alt="" fill priority objectFit="cover" />
         <time className="absolute top-2 right-2 flex w-10 flex-col items-center justify-center rounded-md bg-black/80 py-1.5">
@@ -41,6 +27,6 @@ export default function PostCard({ title, text, datetime }: IProps) {
         <h3 className="mb-1 text-lg font-bold">{title}</h3>
         <p className="text-text-secondary line-clamp-2 text-sm">{text}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
