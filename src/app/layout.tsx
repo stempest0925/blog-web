@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import { noto_serif_sc, noto_sans_sc, poppins, oppo_sans } from "@/helpers/fonts";
 import injectScanner from "@/helpers/scanner";
-import DynamicAside from "@/components/modular/DynamicAside";
+import DynamicAside from "@/components/layout/DynamicAside";
 
 export const metadata: Metadata = {
   title: "Create Next App",

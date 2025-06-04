@@ -1,4 +1,4 @@
-import CharacterList from "@/components/modular/About/CharacterList";
+import CharacterList from "@/components/modules/CharacterList";
 
 export default function page() {
   return (

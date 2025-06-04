@@ -1,6 +1,6 @@
 "use client";
-import Title from "@/components/atomic/Title";
-import PostCard from "@/components/modular/Cards/PostCard";
+import Title from "@/components/base/Title";
+import PostCard from "@/components/modules/Cards/PostCard";
 import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";

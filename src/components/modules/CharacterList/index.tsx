@@ -4,7 +4,7 @@ import { motion, useSpring } from "motion/react";
 
 import { ROLE_IMAGES } from "@/constants/resources";
 import useMouseLocation from "@/hooks/useMouseLocation";
-import CharacterListItem from "./CharacterListItem";
+import CharacterListItem from "./ListItem";
 
 export default function CharacterList() {
   // 获取鼠标坐标系数
