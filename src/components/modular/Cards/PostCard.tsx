@@ -20,7 +20,7 @@ export default function PostCard({ title, text, datetime }: IProps) {
         <Image src="/post-cover.jpg" alt="" fill priority objectFit="cover" />
         <time className="absolute top-2 right-2 flex w-10 flex-col items-center justify-center rounded-md bg-black/80 py-1.5">
           <span className="text-xs text-white/60">{monthAbbr}</span>
-          <h4 className="text-base leading-4 font-black text-white">{day}</h4>
+          <h4 className="text-base leading-4 font-bold text-white">{day}</h4>
         </time>
       </div>
       <div className="px-2 py-3">

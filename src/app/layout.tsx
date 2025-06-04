@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import "../styles/globals.css";
-import { NotoSerifSC } from "@/helpers/fonts";
+import { noto_serif_sc, noto_sans_sc, poppins, oppo_sans } from "@/helpers/fonts";
 import injectScanner from "@/helpers/scanner";
 import DynamicAside from "@/components/modular/DynamicAside";
 
@@ -14,7 +14,7 @@ type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" className={oppo_sans.className}>
       {injectScanner()}
       <body>
         <div className="flex size-full flex-row">

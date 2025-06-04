@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { clamp, normalize } from "@/helpers/math";
+import { normalize } from "@/helpers/math";
 import { throttle } from "@/helpers/optimize";
 
 // 需要做节流，参数为节流参数

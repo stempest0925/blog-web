@@ -14,9 +14,11 @@ export default function CharacterList() {
   const springX = useSpring(0, { stiffness: 300, damping: 30 });
   const springY = useSpring(0, { stiffness: 300, damping: 30 });
 
+  // 添加disable next line，解决eslint静态分析过度保守的警告，关于常量没有添加到依赖数组。
   useEffect(() => {
     springX.set(-(mouseXY.x * 15));
     springY.set(-(mouseXY.y * 15));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mouseXY]);
 
   // 缓存子组件渲染，让其不随父组件的更新导致重渲染。
