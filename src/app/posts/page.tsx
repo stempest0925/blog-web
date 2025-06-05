@@ -52,6 +52,21 @@ export default function PostsPage() {
 
   return (
     <div className="px-2 md:px-4 2xl:px-8">
+      <Title text="导览" />
+      <div className="bg-surface grid gap-4 rounded-lg p-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <div className="bg-gray-300">{/* 这里是图片，单纯作为展示 */}</div>
+        <PostCard
+          title="关于星露谷物语的设计理念"
+          text="星露谷是一款农场游戏，其温馨的内容和画面表现，以及活灵活现的NPC获得了海内外玩家的一致好评。"
+          datetime={Date.now()}
+        />
+        <PostCard
+          title="关于星露谷物语的设计理念"
+          text="星露谷是一款农场游戏，其温馨的内容和画面表现，以及活灵活现的NPC获得了海内外玩家的一致好评。"
+          datetime={Date.now()}
+        />
+        <div className="bg-gray-300">{/* 这里是数据，总文章、总分类、总标签、总预览 */}</div>
+      </div>
       <Title text="近期文章" />
       <div className="grid min-h-12 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {data.map((item, index) => {
